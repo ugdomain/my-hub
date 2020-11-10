@@ -1,0 +1,66 @@
+{% extends 'myapplication/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Show</title>
+{% endblock title %}
+
+{% block body  %}
+
+<div  class=" container-fluid text-center">
+    <div class="row" >
+        <div class="col-sm-10 mt-3 offset-1" >
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Size Of Container</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Carried By</th>
+                    <th scope="col">Diesel</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Operations</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for record in records %}
+                    <tr>
+                    
+                    <td>{{record.id}}</td>
+                    <td>{{record.Date}}</td>
+                    <td>{{record.Sizeofcontainer}}</td>
+                    <td>{{record.From}}</td>
+                    <td>{{record.To}}</td>
+                    <td>{{record.Customer}}</td>
+                    <td>{{record.Carriedby}}</td>
+                    <td>{{record.Diesel}}</td>
+                    <td>{{record.Price}}</td>
+                    <td>{{record.Status}}</td>
+                    <td>
+                      <a href="{% url 'update' record.id %}" class="btn btn-warning btn-sm">Edit</a>
+                      
+                      <form action="{% url 'delete' record.id %}" method="POST" class="d-inline">
+                          {% csrf_token %}
+                      <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                      </form>
+                    </td>
+                  </tr>
+          
+                </tbody>
+                {% endfor %}
+              </table>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock body  %}

@@ -1,0 +1,27 @@
+{% extends 'myapplication/base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Update/Delete</title>
+{% endblock title %}
+
+{% block body  %}
+
+    <div class=" container-fluid " >
+        <h1 class=" text-center text-secondary ">Update Records</h1>
+        <div class=" row " >
+            <div class=" col-sm-10  offset-1" >
+
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class=" btn btn-secondary mb-2 ">Update</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+   
+{% endblock body  %}

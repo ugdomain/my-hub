@@ -1,0 +1,35 @@
+{% extends 'myapplication/base.html' %}
+{% load static %}
+
+{% block body  %}
+<div>
+    <img src="{% static 'myapplication/images/truck.jpg' %}" class="img-fluid" alt="Responsive image">
+</div>
+
+<div class=" text-center"  >
+<h1 class="text-secondary " >Asif Transport System</h1>
+
+<hr style="height:10px; border:none; color:rgb(182, 111, 18); background-color:rgb(161, 102, 25);">
+</div>
+
+<div>
+    <h1 class=" text-center text-secondary mt-4" >Contact Us</h1>
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-12" >
+            <form action="" method="POST" novalidate>
+                {% csrf_token %}
+                {{form.as_p}}
+                <button type="submit" class=" btn btn-primary mb-3 " >Save</button>
+            </form>
+
+          </div>
+
+      </div>
+
+  </div>
+</div>
+
+
+
+{% endblock body  %}
